@@ -40,7 +40,8 @@ h1 {
   </div>
 
 <style>
-    
+<body>
+  
 .full-table {
     display: table;
     height: 100%;
@@ -108,6 +109,7 @@ h1 {
    
 }
 
+</body>
 </style>
 
 <script>
