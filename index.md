@@ -35,13 +35,12 @@ h1 {
         <div class="title" id="title"></div>
        <div class="greet" id="greet"></div>
       </div>
-    </div>
-    
+  
+  </div> 
   </div>
-</div>
 
-/*CSS START*/
-
+<style>
+    
 .full-table {
     display: table;
     height: 100%;
@@ -108,6 +107,8 @@ h1 {
     text-decoration: underline #636363;
    
 }
+
+</style>
 
 <script>
 
