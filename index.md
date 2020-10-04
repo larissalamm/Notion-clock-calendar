@@ -1,5 +1,5 @@
 <!-- original : https://codepen.io/SeanNorton/pen/LWBXQL -->
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -167,5 +167,3 @@ setTimeout(dateTime, 500);
 dateTime()
 // END
 </script>
-
-</html>
