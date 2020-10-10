@@ -22,8 +22,8 @@ h1 {
 <body>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-<div class="full-table">
-  <div class="table-cell">
+
+  <div class="table-cell" >
     
       <div class="clock">
         <div class="time" id="hour"></div>
@@ -31,11 +31,11 @@ h1 {
         <div class="time" id="min"></div>
         <div class="colon">:</div>
         <div class="time" id="sec"></div>
-          <div class="date" id="date"></div>
+       
+      <br> <div class="weekday" id="weekday"></div> 
+        <div class="midle">,</div>
+       <div class="date" id="date"></div>
       </div>
-  
-  </div> 
-  </div>
 
 <style>
 <body>
@@ -52,62 +52,79 @@ h1 {
     text-align: center;
 }
 
-.card:hover {
-    margin-top: 0px;
-    box-shadow: none;
-}
-
 .clock {
     display: inline-block;
     font-family: 'Roboto', normal;
     font-weight: bold;
-    font-size: 1.2em;
-    line-height: 1.5em;
+    font-size: 1.6em;
+    line-height: 1em;
     /* padding-left: 20px; */
 }
 
 .time {
     display: inline-block;
+   font-family: 'Roboto', normal;
     min-width: 25px;
-    font-size: 1.5em;
+    font-size: 1.9em;
+  line-height: 1em
 }
 
 .colon {
-    font-size: 1.2em;
+    font-size: 1.6em;
+    color: #1a1a1a;
     display: inline-block;
 }
 
 .date {
     display: block;
-    min-width: 162px;
-    /* padding-right: 30px; */
-    /* border-right: 2px solid #295C7B; */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em;
+    line-height: 1em;
+   color: ;
+}
+.midle {
+  font-size: 1em;
+  color: #1a1a1a;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.weekday {
+    display: inline-block;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1em;
-    line-height: 1.9em;
+    line-height: 1.5em;
+    color: #1a1a1a;
 }
 
 
 </body>
 </style>
 
-<script>
-
     function date() {
 var today = new Date();
-const options = { weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit' };
+const options = {year: 'numeric', month: '2-digit', day: '2-digit' };
 document.getElementById('date').innerHTML =
 today.toLocaleDateString('de-DE', options);
 }
-
+  
+function weekday() {
+var b = new Date();
+  const optio = {weekday:'long'};
+document.getElementById('weekday').innerHTML = b.toLocaleDateString('de-DE', optio);
+}
+  
+  
 function clock() {
 var today = new Date();
+var b = new Date();
 var hour = zeros(today.getHours());
 var minutes = zeros(today.getMinutes());
 var seconds = zeros(today.getSeconds());
 
-{}
 
 // console.log(today.toLocaleTimeString());
 document.getElementById('hour').innerHTML = hour;
@@ -125,10 +142,10 @@ return num;
 
 function dateTime() {
 date();
+weekday();
 clock();
 setTimeout(dateTime, 500);
 }
 
 dateTime()
 // END
-</script>
