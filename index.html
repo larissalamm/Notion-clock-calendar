@@ -9,13 +9,9 @@
     <style>
 body{
     background-color: #fff;
-    line-height: 1.8;
 
 }
 
-h1 {
-    margin-top: 0;
-}
 
     </style>
 </head>
@@ -23,33 +19,38 @@ h1 {
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 
-  <div class="table-cell" >
-    
+  <table class="table">
+    <td>
       <div class="clock">
         <div class="time" id="hour"></div>
         <div class="colon">:</div>
         <div class="time" id="min"></div>
         <div class="colon">:</div>
         <div class="time" id="sec"></div>
+        
        
-      <br> <div class="weekday" id="weekday"></div> 
-        <div class="midle">,</div>
+      <br> <div class="date" id="weekday"></div> 
+        <div class="date" id= "middle">,</div>
        <div class="date" id="date"></div>
-      </div>
+       <br> <div class="date" id="weeknumber">
+         </td>
+       </div>
+      </table>
 
+    
 <style>
 <body>
   
-.full-table {
-    display: table;
-    height: 100%;
-    width: 100%;
-}
+{}
 
-.table-cell {
-    display: table-cell;
+.table {
     vertical-align: middle;
     text-align: center;
+  padding: 12px 0px 12px 0px;
+  width: 255px;
+  height: 100px;
+
+  
 }
 
 .clock {
@@ -58,7 +59,8 @@ h1 {
     font-weight: bold;
     font-size: 1.4em;
     line-height: 1em;
-    /* padding-left: 20px; */
+  text-align: center;
+
 }
 
 .time {
@@ -69,8 +71,9 @@ h1 {
   line-height: 1em
 }
 
+
 .colon {
-    font-size: 1.4m;
+    font-size: 1.6em;
     color: #1a1a1a;
     display: inline-block;
 }
@@ -80,27 +83,26 @@ h1 {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1em;
-    line-height: 1.7em;
+    line-height: 1em;
+   
    color: ;
 }
-.midle {
-  font-size: 1em;
-  color: #1a1a1a;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  display: inline-block;
-}
 
-.weekday {
-    display: inline-block;
+#weekday {
+    display: inline;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1em;
     line-height: 1.5em;
     color: #1a1a1a;
+  
+}
+#weeknumber{
+  font-size: 0.9em;
 }
 
-
+</body>
+</style>
 </body>
 </style>
 
@@ -149,6 +151,22 @@ clock();
 setTimeout(dateTime, 500);
 }
 
+
+function weeknumber(){
+  var today = new Date();
+Date.prototype.getWeekNumber = function(){
+  var dayNum = today.getUTCDay() || 7;
+  
+  today.setUTCDate(today.getUTCDate() + 4 - dayNum);
+  var yearStart = new Date(Date.UTC(today.getUTCFullYear(),0,1));
+  return Math.ceil((((today - yearStart) / 86400000) + 1)/7)
+}
+
+  
+document.getElementById('weeknumber').innerHTML = "Kalenderwoche " + today.getWeekNumber()
+
+}
+weeknumber()
 dateTime()
 // END
 </script>
